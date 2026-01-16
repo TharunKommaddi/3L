@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3L Photography | Professional Photography Studio in Kadapa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f0;
+            --accent: #d4a574;
+            --text-dark: #2d2d2d;
+            --text-light: #666;
+            --cream: #faf9f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+            background: white;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(9px, -9px);
+            background: white;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        .mobile-menu li {
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .mobile-menu.active li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+        .mobile-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+
+        .mobile-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.05;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, var(--accent) 35px, var(--accent) 36px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--accent) 35px, var(--accent) 36px);
+            pointer-events: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, var(--accent) 35px, var(--accent) 36px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--accent) 35px, var(--accent) 36px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 5%;
+            background: var(--secondary);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            height: 600px;
+            background: linear-gradient(135deg, #d4a574 0%, #c49563 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::after {
+            content: 'CAPTURING MOMENTS';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 8rem 5%;
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background: var(--primary);
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.02);
+        }
+
+        .portfolio-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: 824px;
+        }
+
+        .portfolio-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Services */
+        .services {
+            padding: 8rem 5%;
+            background: var(--primary);
+            color: white;
+        }
+
+        .services .section-header h2 {
+            color: white;
+        }
+
+        .services .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 8rem 5%;
+            background: var(--secondary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%);
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-photo::after {
+            content: '📷';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .team-member h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .team-member .role {
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item .icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        footer .logo {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 400px;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
+
+            nav > ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu a {
+                font-size: 2.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item:nth-child(1) {
+                grid-column: span 1;
+            }
+
+            .portfolio-item:nth-child(4) {
+                grid-column: span 1;
+            }
+
+            .about-content h2,
+            .section-header h2,
+            .contact-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .services-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .mobile-menu a {
+                font-size: 2rem;
+            }
+
+            .about-content h2,
+            .section-header h2,
+            .contact-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">3<span>L</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-pattern"></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-pattern"></div>
+        <div class="hero-content">
+            <div class="subtitle">Professional Photography</div>
+            <h1>3L Photography</h1>
+            <div class="location">Kadapa, Andhra Pradesh</div>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about fade-in" id="about">
+        <div class="about-content">
+            <h2>Capturing Life's Beautiful Moments</h2>
+            <p>At 3L Photography, we believe every moment tells a story. Based in the heart of Kadapa, we are a team of passionate photographers dedicated to preserving your most precious memories with artistry and precision.</p>
+            <p>With years of experience and a keen eye for detail, we specialize in creating stunning visual narratives that you'll treasure for a lifetime. From weddings to corporate events, portraits to product photography, we bring your vision to life.</p>
+            <p>Our commitment to excellence and personalized service has made us one of Kadapa's most trusted photography studios.</p>
+        </div>
+        <div class="about-image"></div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio fade-in" id="portfolio">
+        <div class="section-header">
+            <h2>Our Portfolio</h2>
+            <p>Explore our collection of stunning photography work across various genres</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800" alt="Wedding Photography">
+                <div class="portfolio-overlay">
+                    <h3>Wedding Photography</h3>
+                    <p>Capturing the magic of your special day</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Portrait Photography">
+                <div class="portfolio-overlay">
+                    <h3>Portrait Sessions</h3>
+                    <p>Professional portraits that capture personality</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600" alt="Corporate Events">
+                <div class="portfolio-overlay">
+                    <h3>Corporate Events</h3>
+                    <p>Professional event coverage</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800" alt="Fashion Photography">
+                <div class="portfolio-overlay">
+                    <h3>Fashion & Editorial</h3>
+                    <p>Creative fashion photography</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600" alt="Product Photography">
+                <div class="portfolio-overlay">
+                    <h3>Product Photography</h3>
+                    <p>Showcase your products beautifully</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1452827073306-6e6e661baf57?w=600" alt="Landscape Photography">
+                <div class="portfolio-overlay">
+                    <h3>Landscape & Nature</h3>
+                    <p>Capturing nature's beauty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services fade-in" id="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Comprehensive photography services tailored to your needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💍</div>
+                <h3>Wedding Photography</h3>
+                <p>Complete wedding coverage from pre-wedding shoots to the big day. We capture every emotion, every moment, and every detail that makes your wedding unique.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👤</div>
+                <h3>Portrait Photography</h3>
+                <p>Professional portraits for individuals, families, and groups. Whether it's for personal use or professional headshots, we create stunning portraits.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Corporate & Events</h3>
+                <p>Professional coverage of corporate events, conferences, and business functions. We help you document and promote your brand effectively.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Product Photography</h3>
+                <p>High-quality product photography for e-commerce, catalogs, and advertising. Make your products stand out with professional imagery.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎭</div>
+                <h3>Fashion & Editorial</h3>
+                <p>Creative fashion photography and editorial shoots. We bring artistic vision and technical expertise to every project.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Video Production</h3>
+                <p>Cinematic videography services for weddings, events, and promotional content. Bring your story to life with stunning video.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team fade-in" id="team">
+        <div class="section-header">
+            <h2>Meet Our Team</h2>
+            <p>Talented professionals dedicated to capturing your perfect moments</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-photo"></div>
+                <h3>Lakshmi Narayana</h3>
+                <div class="role">Founder & Lead Photographer</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo"></div>
+                <h3>Rajesh Kumar</h3>
+                <div class="role">Senior Photographer</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo"></div>
+                <h3>Priya Sharma</h3>
+                <div class="role">Portrait Specialist</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo"></div>
+                <h3>Arun Reddy</h3>
+                <div class="role">Wedding Photographer</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo"></div>
+                <h3>Kavya Rani</h3>
+                <div class="role">Video Production</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo"></div>
+                <h3>Suresh Babu</h3>
+                <div class="role">Photo Editor</div>
+            </div>
+            <div class="team-member">
+                <div class="team-photo"></div>
+                <h3>Meena Das</h3>
+                <div class="role">Creative Director</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="portfolio fade-in" id="blog" style="background: var(--secondary);">
+        <div class="section-header">
+            <h2>Latest from Our Blog</h2>
+            <p>Photography tips, behind-the-scenes stories, and recent projects</p>
+        </div>
+        <div class="portfolio-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="portfolio-item" style="height: 350px;">
+                <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?w=600" alt="Blog Post 1">
+                <div class="portfolio-overlay">
+                    <h3>Wedding Photography Tips</h3>
+                    <p>Essential tips for capturing perfect wedding moments</p>
+                </div>
+            </div>
+            <div class="portfolio-item" style="height: 350px;">
+                <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=600" alt="Blog Post 2">
+                <div class="portfolio-overlay">
+                    <h3>Portrait Lighting Guide</h3>
+                    <p>Master the art of portrait lighting</p>
+                </div>
+            </div>
+            <div class="portfolio-item" style="height: 350px;">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600" alt="Blog Post 3">
+                <div class="portfolio-overlay">
+                    <h3>Behind the Lens</h3>
+                    <p>Stories from our recent photography sessions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-in" id="contact">
+        <div class="contact-content">
+            <h2>Let's Create Something Beautiful</h2>
+            <p>Ready to capture your special moments? Get in touch with us today and let's discuss how we can bring your vision to life.</p>
+            <a href="tel:+919876543210" class="cta-button">Call Us Now</a>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <h4>Location</h4>
+                    <p>Kadapa, Andhra Pradesh<br>India</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <h4>Phone</h4>
+                    <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <h4>Email</h4>
+                    <p><a href="/cdn-cgi/l/email-protection#abc2c5cdc4eb98c7dbc3c4dfc4ccd9cadbc3d285c8c4c6"><span class="__cf_email__" data-cfemail="89e0e7efe6c9bae5f9e1e6fde6eefbe8f9e1f0a7eae6e4">[email&#160;protected]</span></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">3<span>L</span> Photography</div>
+        <p>&copy; 2026 3L Photography. All rights reserved. | Kadapa, Andhra Pradesh</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+         

@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3L Photography | Professional Photography Studio in Kadapa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f0;
+            --accent: #d4a574;
+            --text-dark: #2d2d2d;
+            --text-light: #666;
+            --cream: #faf9f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--accent);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span {
+            background: white;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Page Container */
+        .page-container {
+            margin-top: 90px;
+            min-height: calc(100vh - 90px);
+        }
+
+        /* Section/Page Styling */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--accent);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, var(--accent) 35px, var(--accent) 36px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--accent) 35px, var(--accent) 36px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 5%;
+            background: var(--secondary);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            min-height: calc(100vh - 90px);
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            height: 600px;
+            background: linear-gradient(135deg, #d4a574 0%, #c49563 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::after {
+            content: 'CAPTURING MOMENTS';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.1);
+            white-space: nowrap;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 4rem 5%;
+            background: var(--cream);
+            min-height: calc(100vh - 90px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background: var(--primary);
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.02);
+        }
+
+        .portfolio-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: 824px;
+        }
+
+        .portfolio-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+            opacity: 0.7;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Services */
+        .services {
+            padding: 4rem 5%;
+            background: var(--primary);
+            color: white;
+            min-height: calc(100vh - 90px);
+        }
+
+        .services .section-header h2 {
+            color: white;
+        }
+
+        .services .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* Blog Section - Wedding Projects */
+        .blog {
+            padding: 4rem 5%;
+            background: var(--cream);
+            min-height: calc(100vh - 90px);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            flex-wrap: wrap;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-meta i {
+            color: var(--accent);
+        }
+
+        .blog-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .view-wedding {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .view-wedding:hover {
+            gap: 1rem;
+        }
+
+        .view-wedding i {
+            transition: transform 0.3s ease;
+        }
+
+        .view-wedding:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Modal/Overlay for Wedding Details */
+        .wedding-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .wedding-modal.active {
+            display: block;
+        }
+
+        .modal-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem 5%;
+            position: relative;
+        }
+
+        .close-modal {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            z-index: 2001;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 165, 116, 0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .wedding-hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .wedding-hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .wedding-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 4rem;
+        }
+
+        .detail-item {
+            text-align: center;
+            color: white;
+        }
+
+        .detail-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .detail-item p {
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .wedding-story {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        .wedding-story h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .wedding-story p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .wedding-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 5%;
+            background: var(--cream);
+            text-align: center;
+            min-height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item .icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        footer .logo {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 400px;
+            }
+
+            /* Show hamburger on tablet */
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 100%;
+                background: rgba(26, 26, 26, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transition: right 0.4s ease;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li a {
+                font-size: 1.5rem;
+                color: white;
+            }
+
+            nav ul li a::after {
+                background: var(--accent);
+            }
+
+            nav ul li a:hover {
+                color: var(--accent);
+            }
+
+            .wedding-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item:nth-child(1) {
+                grid-column: span 1;
+            }
+
+            .portfolio-item:nth-child(4) {
+                grid-column: span 1;
+            }
+
+            .about-content h2,
+            .section-header h2,
+            .contact-content h2,
+            .wedding-hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .wedding-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 300px;
+            }
+
+            .close-modal {
+                top: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo" onclick="showPage('home')">3<span>L</span></div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="navMenu">
+            <li><a onclick="showPage('home')" data-page="home">Home</a></li>
+            <li><a onclick="showPage('about')" data-page="about">About</a></li>
+            <li><a onclick="showPage('portfolio')" data-page="portfolio">Portfolio</a></li>
+            <li><a onclick="showPage('services')" data-page="services">Services</a></li>
+            <li><a onclick="showPage('weddings')" data-page="weddings">Weddings</a></li>
+            <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-pattern"></div>
+                <div class="hero-content">
+                    <div class="subtitle">Professional Photography</div>
+                    <h1>3L Photography</h1>
+                    <div class="location">Kadapa, Andhra Pradesh</div>
+                    <a class="cta-button" onclick="showPage('contact')">Get In Touch</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <section class="about">
+                <div class="about-content">
+                    <h2>Capturing Life's Beautiful Moments</h2>
+                    <p>At 3L Photography, we believe every moment tells a story. Based in the heart of Kadapa, we are a team of passionate photographers dedicated to preserving your most precious memories with artistry and precision.</p>
+                    <p>With years of experience and a keen eye for detail, we specialize in creating stunning visual narratives that you'll treasure for a lifetime. From weddings to corporate events, portraits to product photography, we bring your vision to life.</p>
+                    <p>Our commitment to excellence and personalized service has made us one of Kadapa's most trusted photography studios.</p>
+                    
+                    <div style="margin-top: 3rem;">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem;">Our Team</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; margin: 0 auto 0.8rem; background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-camera" style="font-size: 2rem; color: white;"></i>
+                                </div>
+                                <h4 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem;">Lakshmi Narayana</h4>
+                                <p style="font-size: 0.85rem; color: var(--accent);">Founder & Lead</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; margin: 0 auto 0.8rem; background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-camera" style="font-size: 2rem; color: white;"></i>
+                                </div>
+                                <h4 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem;">Rajesh Kumar</h4>
+                                <p style="font-size: 0.85rem; color: var(--accent);">Senior Photographer</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; margin: 0 auto 0.8rem; background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-camera" style="font-size: 2rem; color: white;"></i>
+                                </div>
+                                <h4 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem;">Priya Sharma</h4>
+                                <p style="font-size: 0.85rem; color: var(--accent);">Portrait Specialist</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; margin: 0 auto 0.8rem; background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-camera" style="font-size: 2rem; color: white;"></i>
+                                </div>
+                                <h4 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem;">Arun Reddy</h4>
+                                <p style="font-size: 0.85rem; color: var(--accent);">Wedding Photographer</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; margin: 0 auto 0.8rem; background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-video" style="font-size: 2rem; color: white;"></i>
+                                </div>
+                                <h4 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem;">Kavya Rani</h4>
+                                <p style="font-size: 0.85rem; color: var(--accent);">Video Production</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; margin: 0 auto 0.8rem; background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-pen-nib" style="font-size: 2rem; color: white;"></i>
+                                </div>
+                                <h4 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem;">Suresh Babu</h4>
+                                <p style="font-size: 0.85rem; color: var(--accent);">Photo Editor</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 80px; height: 80px; margin: 0 auto 0.8rem; background: linear-gradient(135deg, var(--accent) 0%, #c49563 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-palette" style="font-size: 2rem; color: white;"></i>
+                                </div>
+                                <h4 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem;">Meena Das</h4>
+                                <p style="font-size: 0.85rem; color: var(--accent);">Creative Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image"></div>
+            </section>
+            <footer>
+                <div class="logo">3<span>L</span> Photography</div>
+                <p>&copy; 2026 3L Photography. All rights reserved. | Kadapa, Andhra Pradesh</p>
+            </footer>
+        </div>
+
+        <!-- Portfolio Page -->
+        <div id="portfolio" class="page">
+            <section class="portfolio">
+                <div class="section-header">
+                    <h2>Our Portfolio</h2>
+                    <p>Explore our collection of stunning photography work across various genres</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800" alt="Wedding Photography">
+                        <div class="portfolio-overlay">
+                            <h3>Wedding Photography</h3>
+                            <p>Capturing the magic of your special day</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Portrait Photography">
+                        <div class="portfolio-overlay">
+                            <h3>Portrait Sessions</h3>
+                            <p>Professional portraits that capture personality</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600" alt="Corporate Events">
+                        <div class="portfolio-overlay">
+                            <h3>Corporate Events</h3>
+                            <p>Professional event coverage</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800" alt="Fashion Photography">
+                        <div class="portfolio-overlay">
+                            <h3>Fashion & Editorial</h3>
+                            <p>Creative fashion photography</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600" alt="Product Photography">
+                        <div class="portfolio-overlay">
+                            <h3>Product Photography</h3>
+                            <p>Showcase your products beautifully</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1452827073306-6e6e661baf57?w=600" alt="Landscape Photography">
+                        <div class="portfolio-overlay">
+                            <h3>Landscape & Nature</h3>
+                            <p>Capturing nature's beauty</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="logo">3<span>L</span> Photography</div>
+                <p>&copy; 2026 3L Photography. All rights reserved. | Kadapa, Andhra Pradesh</p>
+            </footer>
+        </div>
+
+        <!-- Services Page -->
+        <div id="services" class="page">
+            <section class="services">
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive photography services tailored to your needs</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-rings-wedding"></i></div>
+                        <h3>Wedding Photography</h3>
+                        <p>Complete wedding coverage from pre-wedding shoots to the big day. We capture every emotion, every moment, and every detail that makes your wedding unique.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-user"></i></div>
+                        <h3>Portrait Photography</h3>
+                        <p>Professional portraits for individuals, families, and groups. Whether it's for personal use or professional headshots, we create stunning portraits.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3>Corporate & Events</h3>
+                        <p>Professional coverage of corporate events, conferences, and business functions. We help you document and promote your brand effectively.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-box"></i></div>
+                        <h3>Product Photography</h3>
+                        <p>High-quality product photography for e-commerce, catalogs, and advertising. Make your products stand out with professional imagery.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-shirt"></i></div>
+                        <h3>Fashion & Editorial</h3>
+                        <p>Creative fashion photography and editorial shoots. We bring artistic vision and technical expertise to every project.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-video"></i></div>
+                        <h3>Video Production</h3>
+                        <p>Cinematic videography services for weddings, events, and promotional content. Bring your story to life with stunning video.</p>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="logo">3<span>L</span> Photography</div>
+                <p>&copy; 2026 3L Photography. All rights reserved. | Kadapa, Andhra Pradesh</p>
+            </footer>
+        </div>
+
+        <!-- Weddings Page -->
+        <div id="weddings" class="page">
+            <section class="blog">
+                <div class="section-header">
+                    <h2>Our Wedding Stories</h2>
+                    <p>Explore beautiful weddings we've had the honor to capture</p>
+                </div>
+                <div class="blog-grid">
+                    <!-- Wedding 1 -->
+                    <article class="blog-card" onclick="openWedding('wedding1')">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=600');"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> December 15, 2025</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Kadapa</span>
+                            </div>
+                            <h3>Priya & Rahul</h3>
+                            <p>A beautiful traditional wedding celebration filled with love, laughter, and unforgettable moments at the Grand Palace, Kadapa.</p>
+                            <a class="view-wedding">View Wedding <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Wedding 2 -->
+                    <article class="blog-card" onclick="openWedding('wedding2')">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800');"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> November 28, 2025</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Tirupati</span>
+                            </div>
+                            <h3>Anjali & Karthik</h3>
+                            <p>An elegant destination wedding with breathtaking views, stunning décor, and cherished family moments that will last forever.</p>
+                            <a class="view-wedding">View Wedding <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Wedding 3 -->
+                    <article class="blog-card" onclick="openWedding('wedding3')">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600');"></div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> October 20, 2025</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Hyderabad</span>
+                            </div>
+                            <h3>Deepika & Arjun</h3>
+                            <p>A modern fusion wedding blending traditional customs with contemporary elegance, creating magical memories under starlit skies.</p>
+                            <a class="view-wedding">View Wedding <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <footer>
+                <div class="logo">3<span>L</span> Photography</div>
+                <p>&copy; 2026 3L Photography. All rights reserved. | Kadapa, Andhra Pradesh</p>
+            </footer>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="contact">
+                <div class="contact-content">
+                    <h2>Let's Create Something Beautiful</h2>
+                    <p>Ready to capture your special moments? Get in touch with us today and let's discuss how we can bring your vision to life.</p>
+                    <a href="tel:+919876543210" class="cta-button">Call Us Now</a>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <h4>Location</h4>
+                            <p>Kadapa, Andhra Pradesh<br>India</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@3lphotography.com">info@3lphotography.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="logo">3<span>L</span> Photography</div>
+                <p>&copy; 2026 3L Photography. All rights reserved. | Kadapa, Andhra Pradesh</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Wedding Modals (unchanged from before) -->
+    <div id="wedding1" class="wedding-modal">
+        <span class="close-modal" onclick="closeWedding('wedding1')">&times;</span>
+        <div class="modal-content">
+            <div class="wedding-hero">
+                <h2>Priya & Rahul</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.2rem;">A Traditional Love Story</p>
+            </div>
+            <div class="wedding-details">
+                <div class="detail-item">
+                    <i class="far fa-calendar"></i>
+                    <h4>Date</h4>
+                    <p>December 15, 2025</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Venue</h4>
+                    <p>Grand Palace, Kadapa</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Guests</h4>
+                    <p>500+ Guests</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-palette"></i>
+                    <h4>Theme</h4>
+                    <p>Traditional Red & Gold</p>
+                </div>
+            </div>
+            <div class="wedding-story">
+                <h3>Their Story</h3>
+                <p>Priya and Rahul's wedding was a magnificent celebration of tradition and love. Set in the beautiful Grand Palace of Kadapa, the ceremony brought together family and friends from across the country. The bride looked stunning in her red and gold lehenga, while the groom was equally dashing in his traditional sherwani. From the vibrant mehndi ceremony to the emotional bidaai, every moment was filled with joy, laughter, and happy tears. The grand reception featured live music, traditional dance performances, and a spectacular fireworks display that lit up the night sky.</p>
+            </div>
+            <div class="wedding-gallery">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Wedding Photo 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800" alt="Wedding Photo 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600" alt="Wedding Photo 3"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800" alt="Wedding Photo 4"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600" alt="Wedding Photo 5"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1452827073306-6e6e661baf57?w=600" alt="Wedding Photo 6"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600" alt="Wedding Photo 7"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1545291730-faff8ca1d4b0?w=600" alt="Wedding Photo 8"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600" alt="Wedding Photo 9"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600" alt="Wedding Photo 10"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=700" alt="Wedding Photo 11"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=600" alt="Wedding Photo 12"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wedding2" class="wedding-modal">
+        <span class="close-modal" onclick="closeWedding('wedding2')">&times;</span>
+        <div class="modal-content">
+            <div class="wedding-hero">
+                <h2>Anjali & Karthik</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.2rem;">A Destination Wedding Dream</p>
+            </div>
+            <div class="wedding-details">
+                <div class="detail-item">
+                    <i class="far fa-calendar"></i>
+                    <h4>Date</h4>
+                    <p>November 28, 2025</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Venue</h4>
+                    <p>Heritage Resort, Tirupati</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Guests</h4>
+                    <p>300 Guests</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-palette"></i>
+                    <h4>Theme</h4>
+                    <p>Royal Blue & Ivory</p>
+                </div>
+            </div>
+            <div class="wedding-story">
+                <h3>Their Story</h3>
+                <p>Anjali and Karthik chose the stunning hills of Tirupati for their destination wedding, creating an unforgettable experience for all their guests. The three-day celebration began with a colorful sangeet night featuring Bollywood performances and live music. The wedding ceremony took place at sunrise, with the golden morning light creating a magical ambiance. The reception was an elegant affair with sophisticated décor, gourmet cuisine, and heartfelt speeches that moved everyone to tears. Every detail was perfectly planned, from the floral arrangements to the custom wedding favors, making it truly a celebration to remember.</p>
+            </div>
+            <div class="wedding-gallery">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800" alt="Wedding Photo 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700" alt="Wedding Photo 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700" alt="Wedding Photo 3"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800" alt="Wedding Photo 4"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=700" alt="Wedding Photo 5"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1452827073306-6e6e661baf57?w=700" alt="Wedding Photo 6"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600" alt="Wedding Photo 7"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600" alt="Wedding Photo 8"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=600" alt="Wedding Photo 9"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?w=600" alt="Wedding Photo 10"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?w=600" alt="Wedding Photo 11"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544810808-7dd8a38e91de?w=600" alt="Wedding Photo 12"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600" alt="Wedding Photo 13"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600" alt="Wedding Photo 14"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519167758481-83f29da8c2cf?w=600" alt="Wedding Photo 15"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wedding3" class="wedding-modal">
+        <span class="close-modal" onclick="closeWedding('wedding3')">&times;</span>
+        <div class="modal-content">
+            <div class="wedding-hero">
+                <h2>Deepika & Arjun</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.2rem;">A Modern Fusion Celebration</p>
+            </div>
+            <div class="wedding-details">
+                <div class="detail-item">
+                    <i class="far fa-calendar"></i>
+                    <h4>Date</h4>
+                    <p>October 20, 2025</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Venue</h4>
+                    <p>Sky Garden, Hyderabad</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Guests</h4>
+                    <p>400 Guests</p>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-palette"></i>
+                    <h4>Theme</h4>
+                    <p>Blush Pink & Gold</p>
+                </div>
+            </div>
+            <div class="wedding-story">
+                <h3>Their Story</h3>
+                <p>Deepika and Arjun's wedding was a perfect blend of tradition and modernity. Held at the luxurious Sky Garden in Hyderabad, the celebration featured contemporary décor with traditional elements. The couple exchanged vows during a beautiful sunset ceremony on the rooftop, with the city skyline as their backdrop. The fusion theme extended to the cuisine, music, and even the couple's attire - Deepika wore a stunning contemporary lehenga for the ceremony and changed into a elegant gown for the reception. The evening concluded with a DJ party that had all guests dancing under a canopy of fairy lights and stars.</p>
+            </div>
+            <div class="wedding-gallery">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700" alt="Wedding Photo 1"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800" alt="Wedding Photo 2"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800" alt="Wedding Photo 3"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=700" alt="Wedding Photo 4"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=700" alt="Wedding Photo 5"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1452827073306-6e6e661baf57?w=700" alt="Wedding Photo 6"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Wedding Photo 7"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600" alt="Wedding Photo 8"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=600" alt="Wedding Photo 9"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600" alt="Wedding Photo 10"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1514315384763-ba401779410f?w=600" alt="Wedding Photo 11"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600" alt="Wedding Photo 12"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600" alt="Wedding Photo 13"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600" alt="Wedding Photo 14"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" alt="Wedding Photo 15"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600" alt="Wedding Photo 16"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600" alt="Wedding Photo 17"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600" alt="Wedding Photo 18"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Page Navigation System
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active menu item
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`nav a[data-page="${pageId}"]`)?.classList.add('active');
+            
+            // Close mobile menu if open
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Wedding Modal Functions
+        function openWedding(weddingId) {
+            document.getElementById(weddingId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWedding(weddingId) {
+            document.getElementById(weddingId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        document.querySelectorAll('.wedding-modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeWedding(this.id);
+                }
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.wedding-modal.active').forEach(modal => {
+                    closeWedding(modal.id);
+                });
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Set home as active on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
